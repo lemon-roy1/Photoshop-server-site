@@ -136,8 +136,7 @@ async function run() {
     }
 
 }
- //user : servicebd
-// pass : XW23sBUnmp2e5IsN
+
 run().catch(err => console.error(err));
 
 
