@@ -73,7 +73,7 @@ async function run() {
             res.send(service);
         });
       
-        // reviews api
+        // git reviews api
         app.get('/reviews',verifyJWT, async (req, res) => {
             const decoded = req.decoded;
             if(decoded.email !== req.query.email){
@@ -90,9 +90,9 @@ async function run() {
             const review = await cursor.toArray();
             res.send(review);
         });
-//
+
         app.post('/reviews',verifyJWT, async (req, res) => {
-            const review = req;
+            const review = req.body;
             const result = await reviewCollection.insertOne(review);
             res.send(result);
         });
