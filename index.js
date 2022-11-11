@@ -8,9 +8,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 5000;
 
-// middle wares
-// app.use(cors());
-// app.use(express.json());
+
 app.use(cors());
 app.use(express.json())
 
@@ -52,7 +50,7 @@ async function run() {
             res.send({token})
         })  
 
-        //services create 
+        //get services create 
         app.post('/services', async(req, res)=>{
             const service = req.body;
             const result = await serviceCollection.insertOne(service);
@@ -73,7 +71,7 @@ async function run() {
             res.send(service);
         });
       
-        // git reviews api
+        // get reviews api
         app.get('/reviews',verifyJWT, async (req, res) => {
             const decoded = req.decoded;
             if(decoded.email !== req.query.email){
