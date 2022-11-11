@@ -90,9 +90,9 @@ async function run() {
             const review = await cursor.toArray();
             res.send(review);
         });
-
+//
         app.post('/reviews',verifyJWT, async (req, res) => {
-            const review = req.body;
+            const review = req;
             const result = await reviewCollection.insertOne(review);
             res.send(result);
         });
